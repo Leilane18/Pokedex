@@ -1,5 +1,21 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-background: lightcoral;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+
+  main {
+    max-width: 150rem;
+    margin: 0 auto;
+    padding: 1.2rem;
+  }
+
+  @media (min-width: 728px) {
+    main {
+      padding: 2.4rem;
+    }
+  }
 `;
