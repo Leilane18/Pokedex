@@ -4,7 +4,7 @@ import { Container } from "./style";
 import { PokemonCard } from "../../components/PokemonCard";
 
 export function Home() {
-  const { data, isLoading, error, page, totalPages } = useQueryPokemonPage();
+  const { data, isLoading, error, page, totalPages, nextPage, prevPage } = useQueryPokemonPage();
   console.log(data);
 
   return (
@@ -18,7 +18,7 @@ export function Home() {
       <div className="gridCards">
         {data?.map((pokemon) => {
           return (
-            <Link to={"/details"} key={pokemon.id}>
+            <Link to={`/details/${pokemon.name}`} key={pokemon.id}>
               <PokemonCard pokemon={pokemon} />
             </Link>
           );
@@ -26,11 +26,11 @@ export function Home() {
       </div>
 
       <div className="paginationComponent">
-        <button>&lt; Anterior</button>
+        <button onClick={prevPage} disabled={page <=1}>&lt; Anterior</button>
         <span className="numberPage">
-          {page}/{totalPages}
+          {String(page).padStart(2, "0")}/{String(totalPages).padStart(2, "0")}
         </span>
-        <button>Próxima &gt;</button>
+        <button onClick={nextPage} disabled={page >= totalPages}>Próxima &gt;</button>
       </div>
     </Container>
   );
