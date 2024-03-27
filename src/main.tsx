@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <QueryClientProvider client={new QueryClient()}>
       <ThemeProvider theme={appTheme}>
-        <AppRoutes/>
+        <AppRoutes />
         <Reset />
       </ThemeProvider>
     </QueryClientProvider>

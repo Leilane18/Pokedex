@@ -8,7 +8,7 @@ export function Header() {
       <Link to={"/"}>
         <img
           src={pokemonLogo}
-          alt="logo amarela com borda azul escrita o texto do pokémon"
+          alt="logo amerela com borda azul escrita o texto pokémon"
         />
       </Link>
 
@@ -17,6 +17,7 @@ export function Header() {
           <label htmlFor="inputSearch" hidden>
             Pesquisar Pokémon
           </label>
+
           <input type="text" id="inputSearch" placeholder="Pesquisar Pokémon" />
         </section>
 
