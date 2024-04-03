@@ -17,13 +17,11 @@ export function useQueryPokemonPage() {
     const offset = (page - 1) * limit;
     const { data } = await API.get(`/pokemon?limit=${limit}&offset=${offset}`);
 
-    const pokemonPromise = data.results.map(
-      async (pokemon: { url: string }) => {
-        const response = await fetch(pokemon.url);
-        const data = await response.json();
-        return data;
-      }
-    );
+    const pokemonPromise = data.results.map(async (pokemon: { url: string }) => {
+      const response = await fetch(pokemon.url);
+      const data = await response.json();
+      return data;
+    });
 
     const pokemonData = await Promise.all(pokemonPromise);
 
@@ -60,7 +58,7 @@ export function useQueryPokemonPage() {
         return;
       }
 
-      if(pageQuery < 1) {
+      if (pageQuery < 1) {
         navigate(`?page=1`);
         setPage(1);
         return;

@@ -4,7 +4,8 @@ import { Container } from "./style";
 import { PokemonCard } from "../../components/PokemonCard";
 
 export function Home() {
-  const { data, isLoading, error, page, totalPages, nextPage, prevPage } = useQueryPokemonPage();
+  const { data, isLoading, error, page, totalPages, nextPage, prevPage } =
+    useQueryPokemonPage();
   console.log(data);
 
   return (
@@ -26,11 +27,17 @@ export function Home() {
       </div>
 
       <div className="paginationComponent">
-        <button onClick={prevPage} disabled={page <=1}>&lt; Anterior</button>
+        <button onClick={prevPage} disabled={page <= 1}>
+          &lt; Anterior
+        </button>
+
         <span className="numberPage">
           {String(page).padStart(2, "0")}/{String(totalPages).padStart(2, "0")}
         </span>
-        <button onClick={nextPage} disabled={page >= totalPages}>Próxima &gt;</button>
+
+        <button onClick={nextPage} disabled={page >= totalPages}>
+          Próxima &gt;
+        </button>
       </div>
     </Container>
   );
